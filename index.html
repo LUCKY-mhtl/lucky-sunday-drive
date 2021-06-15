@@ -115,6 +115,24 @@
             animation-iteration-count: infinite;
         }
 
+        .text-info  {
+            display: none;
+            position: fixed;
+            z-index: 20;
+            left: 0;
+            bottom: 5%;
+            width: 100%;
+            text-align: center;
+            font-size: 28px;
+            line-height: 28px;
+            color: #FFC700;
+            text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+        }
+
         #wrap {
             position: fixed;
             z-index: 10;
@@ -124,10 +142,17 @@
             background-size: 100% auto;
         }
 
+        #offset {
+            height: 50%;
+            width: 100%;
+        }
+
         #container {
             position: relative;
-            z-index: 1;
-            top: 0;
+            height: 540px;
+            top: -270px;
+            margin: 0 auto;
+            width: 990px;
         }
 
         #content {
@@ -136,53 +161,31 @@
             height: 100%;
         }
 
-        #content div {
-            display: none;
-        }
-
-
         section {
-            z-index: 3;
-            position: relative;
-        }
-
-        section img {
-            min-width: 20%;
-            max-height: 100%;
-            opacity: 0.95;
-        }
-
-        #content {
-            width: 600px;
-        }
-
-        #content section {
-            width: 600px;
+            width: 100%;
             height: 100%;
             position: absolute;
-            padding-top: 42%;
-            margin: 0;
         }
 
         /***************** True 3d  *****************/
         #environment {
-            -webkit-perspective: 600px;
-            -webkit-perspective-origin: center 200px;
-            -moz-perspective: 600px;
-            -moz-perspective-origin: center center;
-            -o-perspective: 600px;
-            -o-perspective-origin: center 200px;
-            perspective: 600px;
-            perspective-origin: center 200px;
-            width: 400px;
-            margin: 0 auto;
-            height: 800px;
+            width: 100%;
+            height: 540px;
+            /*-webkit-perspective: 500px;*/
+            /*-moz-perspective: 500px;*/
+            /*-ms-perspective: 500px;*/
+            /*-o-perspective: 500px;*/
+            perspective: 500px;
+            /*-webkit-perspective-origin: center 450px;*/
+            /*-moz-perspective-origin: center 450px;*/
+            /*-ms-perspective-origin: center 450px;*/
+            /*-o-perspective-origin: center 450px;*/
+            perspective-origin: center 370px;
         }
 
         #content {
             -webkit-transform-style: preserve-3d;
             -moz-transform-style: preserve-3d;
-            -o-transform-style: preserve-3d;
             transform-style: preserve-3d;
         }
     </style>
@@ -216,15 +219,26 @@
     (Robert Venturi, Denise Scott Brown, Steven Izenour)
 </div>
 
+<div class="text-info"></div>
+
 <div id="wrap">
+    <div id="offset"></div>
     <div id="container">
         <div id="environment">
             <div id="content">
-                <section><img src="" alt=""></section>
+                <section data-text=""><img src="./img/item-1.png" alt=""></section>
+                <section data-text=""><img src="./img/tree-1.png" alt=""></section>
+                <section data-text=""><img src="./img/tree-2.png" alt=""></section>
+                <section data-text=""><img src="./img/item-2.png" alt=""></section>
+                <section data-text=""><img src="./img/tree-3.png" alt=""></section>
+                <section data-text=""><img src="./img/item-1.png" alt=""></section>
+                <section data-text=""><img src="./img/tree-2.png" alt=""></section>
+                <section data-text=""><img src="./img/item-2.png" alt=""></section>
             </div>
         </div>
     </div>
 </div>
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -237,7 +251,6 @@
         var year = date.getUTCFullYear();
         var month = date.getMonth();
         var clockDate = date.getDate();
-        var day = date.getDay();
         var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
         dateTarget.innerText = `${clockDate} ${monthNames[month]}, ${year}`;
@@ -261,6 +274,7 @@
     $('#dim').click(function(){
        $('.logo-intro, .text-intro').fadeOut(250);
        $('.logo-title').fadeIn(350);
+       $(this).hide();
     });
 
     /*!
