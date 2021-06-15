@@ -42,7 +42,9 @@
             width: 100%;
         }
 
-        ::-webkit-scrollbar { display: none; }
+        ::-webkit-scrollbar {
+            display: none;
+        }
 
         #dim {
             position: fixed;
@@ -121,7 +123,6 @@
         }
 
         .text-info {
-            display: none;
             position: fixed;
             z-index: 20;
             left: 0;
@@ -143,7 +144,7 @@
             width: 100%;
             height: 100%;
             background: url(img/bg.jpg) center center no-repeat;
-            background-size: 100% auto;
+            background-size: 1920px auto;
         }
 
         #offset {
@@ -230,13 +231,13 @@
     <div id="container">
         <div id="environment">
             <div id="content">
-                <section data-text=""><img src="./img/tree-1.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-2.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-3.png" alt=""></section>
+                <section><img src="./img/tree-1.png" alt=""></section>
+                <section><img src="./img/tree-2.png" alt=""></section>
+                <section><img src="./img/tree-3.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-01.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-2.png" alt=""></section>
+                <section><img src="./img/tree-2.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-02.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-3.png" alt=""></section>
+                <section><img src="./img/tree-3.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-04.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-06.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-07.png" alt=""></section>
@@ -248,11 +249,11 @@
                 <section data-text=""><img src="./img/Billboard-16.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-17.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-18.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-1.png" alt=""></section>
+                <section><img src="./img/tree-1.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-19.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-2.png" alt=""></section>
+                <section><img src="./img/tree-2.png" alt=""></section>
                 <section data-text=""><img src="./img/Billboard-20.png" alt=""></section>
-                <section data-text=""><img src="./img/tree-3.png" alt=""></section>
+                <section><img src="./img/tree-3.png" alt=""></section>
             </div>
         </div>
     </div>
@@ -294,6 +295,58 @@
         $('.logo-title').fadeIn(350);
         $(this).hide();
     });
+
+    $(window).scroll(function () {
+        var scrollValue = $(document).scrollTop();
+        console.log(scrollValue);
+
+        if (scrollValue >= 1300 && scrollValue <= 1800) {
+            $('.text-info').empty();
+            $('.text-info').html(`“Where we go” by W. MURRARAY<br>Publishers: WILLS & HEPWORTH LTD.`);
+        } else if (scrollValue >= 2500 && scrollValue <= 3000) {
+            $('.text-info').empty();
+            $('.text-info').html(`“The Most Expensive Restaurant Ever Built”<br>Publishers: Sleeperhold Publications`);
+        } else if (scrollValue >= 3700 && scrollValue <= 4200) {
+            $('.text-info').empty();
+            $('.text-info').html(`“The Knife”<br>Publishers: Dent-de-Leone`);
+        } else if (scrollValue >= 4300 && scrollValue <= 4800) {
+            $('.text-info').empty();
+            $('.text-info').html(`“"ARTWORK"”<br>Publishers: MCA CHICAGO`);
+        } else if (scrollValue >= 4300 && scrollValue <= 4800) {
+            $('.text-info').empty();
+            $('.text-info').html(`“The Culture Clash”<br>Publishers: Dogwise Publising`);
+        } else if (scrollValue >= 4900 && scrollValue <= 5400) {
+            $('.text-info').empty();
+            $('.text-info').html(`“내 마음 아시나요”<br>Publishers: 한숲`);
+        } else if (scrollValue >= 5500 && scrollValue <= 6000) {
+            $('.text-info').empty();
+            $('.text-info').html(`“thisisneverthisisneverthat”<br>Publishers: 워크룸프레스`);
+        } else if (scrollValue >= 6100 && scrollValue <= 6600) {
+            $('.text-info').empty();
+            $('.text-info').html(`“SOMETHING'S OFF”<br>Publishers: TASCHEN`);
+        } else if (scrollValue >= 6700 && scrollValue <= 7200) {
+            $('.text-info').empty();
+            $('.text-info').html(`“POP WILL EAT ITSELF”<br>Publishers: IDEA`);
+        } else if (scrollValue >= 7300 && scrollValue <= 7800) {
+            $('.text-info').empty();
+            $('.text-info').html(`“GET OUT”<br>Publishers: Inventory Press`);
+        } else if (scrollValue >= 7900 && scrollValue <= 8400) {
+            $('.text-info').empty();
+            $('.text-info').html(`“The Mcdonaldization of Society”<br>Publishers: Pine Forge Press`);
+        } else if (scrollValue >= 8500 && scrollValue <= 9000) {
+            $('.text-info').empty();
+            $('.text-info').html(`“칵테일, 러브, 좀비”<br>Publishers: 안전가옥`);
+        } else if (scrollValue >= 9100 && scrollValue <= 9600) {
+            $('.text-info').empty();
+            $('.text-info').html(`“트랜스포머”<br>Publishers: 작업실유령`);
+        } else if (scrollValue >= 9700 && scrollValue <= 10200) {
+            $('.text-info').empty();
+            $('.text-info').html(`“THE CIRCLE”<br>Publishers: Maurizio Corraini s.r.l.`);
+        }else{
+            $('.text-info').empty();
+        }
+    });
+
 
     /*!
      * Modernizr v1.6
