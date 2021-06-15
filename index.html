@@ -30,6 +30,32 @@
             }
         }
 
+        @keyframes car-1 {
+            from {
+            }
+            50% {
+                -moz-transform: translateY(10px);
+                -webkit-transform: translateY(10px);
+                -o-transform: translateY(10px);
+                -ms-transform: translateY(10px);
+                transform: translateY(10px);
+            }
+            to {
+            }
+        }
+
+        @keyframes car-2 {
+            from {
+                left: 50%;
+            }
+            60% {
+                left: 47%;
+            }
+            to {
+                left: 50%;
+            }
+        }
+
         html,
         body {
             font-family: 'Dot Matrix', 'Noto Sans KR', sans-serif;
@@ -138,6 +164,17 @@
             1px 1px 0 #000;
         }
 
+        .car {
+            display: none;
+            position: fixed;
+            z-index: 15;
+            bottom: 2%;
+            left: 50%;
+            width: 220px;
+            margin-left: -80px;
+            animation: 0.65s car-1 infinite, 3s car-2 infinite;
+        }
+
         #wrap {
             position: fixed;
             z-index: 10;
@@ -224,6 +261,10 @@
     (Robert Venturi, Denise Scott Brown, Steven Izenour)
 </div>
 
+<div class="car">
+    <img src=".\img\car.png" alt="">
+</div>
+
 <div class="text-info"></div>
 
 <div id="wrap" style="">
@@ -302,9 +343,10 @@
 
         if (scrollValue >= 1) {
             $('#wrap').css({
-                'background' : 'url(img/bg.gif) center center no-repeat',
-                'background-size' : '1920px auto'
+                'background': 'url(img/bg.gif) center center no-repeat',
+                'background-size': '1920px auto'
             });
+            $('.car').show();
         } else if (scrollValue >= 1300 && scrollValue <= 1800) {
             $('.text-info').empty();
             $('.text-info').html(`“Where we go” by W. MURRARAY<br>Publishers: WILLS & HEPWORTH LTD.`);
@@ -347,7 +389,7 @@
         } else if (scrollValue >= 9700 && scrollValue <= 10200) {
             $('.text-info').empty();
             $('.text-info').html(`“THE CIRCLE”<br>Publishers: Maurizio Corraini s.r.l.`);
-        }else{
+        } else {
             $('.text-info').empty();
         }
     });
